@@ -9,6 +9,18 @@ io_json = {'input': ['s3://npipublicinternal/test/chipseq/run_test1/fastq/mouse_
 with open(MODULE+'.test.io.json','w') as fout:
     json.dump(io_json, fout)
 
+io_json2 = {'input': ['s3://npipublicinternal/test/chipseq/run_test1/fastq/mouse_control_chipseq_rep2.fastq.gz'], 'output': ['s3://npipublicinternal/test/chipseq/run_test1/bowtie2/mouse_control_chipseq_rep2.bowtie2.sam'], 'alternate_inputs': ['s3://npipublicinternal/test/genomes/mm10/bowtie2index/mm10.fasta'], 'alternate_outputs': [], 'program_arguments': '', 'sample_id': MODULE+'_test'}
+with open(MODULE+'.test2.io.json','w') as fout:
+    json.dump(io_json2, fout)
+
+io_json3 = {'input': ['s3://npipublicinternal/test/chipseq/run_test1/fastq/mouse_heart_H3K4me3_rep1.fastq.gz'], 'output': ['s3://npipublicinternal/test/chipseq/run_test1/bowtie2/mouse_heart_H3K4me3_rep1.bowtie2.sam'], 'alternate_inputs': ['s3://npipublicinternal/test/genomes/mm10/bowtie2index/mm10.fasta'], 'alternate_outputs': [], 'program_arguments': '', 'sample_id': MODULE+'_test'}
+with open(MODULE+'.test3.io.json','w') as fout:
+    json.dump(io_json3, fout)
+
+io_json4 = {'input': ['s3://npipublicinternal/test/chipseq/run_test1/fastq/mouse_heart_H3K4me3_rep2.fastq.gz'], 'output': ['s3://npipublicinternal/test/chipseq/run_test1/bowtie2/mouse_heart_H3K4me3_rep1.bowtie2.sam'], 'alternate_inputs': ['s3://npipublicinternal/test/genomes/mm10/bowtie2index/mm10.fasta'], 'alternate_outputs': [], 'program_arguments': '', 'sample_id': MODULE+'_test'}
+with open(MODULE+'.test4.io.json','w') as fout:
+    json.dump(io_json4, fout)    
+    
 io_dryrun_json = io_json
 io_dryrun_json['dryrun'] = ''
 with open(MODULE+'.dryrun_test.io.json','w') as fout:
@@ -23,3 +35,15 @@ with open(MODULE+'.dryrun_local_test.io.json','w') as fout:
 job_json = {"container_overrides": {"command": ["--module_name", MODULE, "--run_arguments", "s3://npipublicinternal/test/modules/"+MODULE+"/job/"+MODULE+".test.job.json", "--working_dir", "/home/"]}, "jobqueue": "batch_scratch_queue", "jobname": "job_"+MODULE+"_test"}
 with open(MODULE+'.test.job.json','w') as fout:
     json.dump(io_json, fout)
+
+job_json = {"container_overrides": {"command": ["--module_name", MODULE, "--run_arguments", "s3://npipublicinternal/test/modules/"+MODULE+"/job/"+MODULE+".test.job.json", "--working_dir", "/home/"]}, "jobqueue": "batch_scratch_queue", "jobname": "job_"+MODULE+"_test"}
+with open(MODULE+'.test2.job.json','w') as fout:
+    json.dump(io_json2, fout)
+
+job_json = {"container_overrides": {"command": ["--module_name", MODULE, "--run_arguments", "s3://npipublicinternal/test/modules/"+MODULE+"/job/"+MODULE+".test.job.json", "--working_dir", "/home/"]}, "jobqueue": "batch_scratch_queue", "jobname": "job_"+MODULE+"_test"}
+with open(MODULE+'.test3.job.json','w') as fout:
+    json.dump(io_json3, fout)
+
+job_json = {"container_overrides": {"command": ["--module_name", MODULE, "--run_arguments", "s3://npipublicinternal/test/modules/"+MODULE+"/job/"+MODULE+".test.job.json", "--working_dir", "/home/"]}, "jobqueue": "batch_scratch_queue", "jobname": "job_"+MODULE+"_test"}
+with open(MODULE+'.test4.job.json','w') as fout:
+    json.dump(io_json4, fout)    
