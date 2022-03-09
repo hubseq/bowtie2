@@ -23,6 +23,8 @@ def runOtherPre( input_dir, output_dir, run_json ):
 
     If you are not running any other commands or post-processing, then leave this function blank.
     """
+    # remove .fasta ending since bowtie2 uses genome prefix
+    run_json['program_arguments'] = str(run_json['program_arguments']).replace('.fasta','')
     return run_json
 
 

@@ -6,15 +6,16 @@ with open(MODULE+'.template.json','w') as fout:
     json.dump(mi_template_json, fout)
 
 io_json = {'input': ['s3://npipublicinternal/test/chipseq/run_test1/fastq/mouse_control_chipseq_rep1.fastq.gz'], 'output': ['s3://npipublicinternal/test/chipseq/run_test1/bowtie2/mouse_control_chipseq_rep1.bowtie2.sam'], 'alternate_inputs': ['s3://npipublicinternal/test/genomes/mm10/bowtie2index/mm10.fasta'], 'alternate_outputs': [], 'program_arguments': '', 'sample_id': MODULE+'_test'}
+with open(MODULE+'.test.io.json','w') as fout:
+    json.dump(io_json, fout)
+
 io_dryrun_json = io_json
 io_dryrun_json['dryrun'] = ''
+with open(MODULE+'.dryrun_test.io.json','w') as fout:
+    json.dump(io_dryrun_json, fout)
 
 io_dryrun_local_json = {'input': ['/Users/jerry/icloud/Documents/hubseq/bowtie2/test/mouse_control_chipseq_rep1.fastq.gz'], 'output': ['/Users/jerry/icloud/Documents/hubseq/bowtie2/test/mouse_control_chipseq_rep1.bowtie2.sam'], 'alternate_inputs': ['/Users/jerry/icloud/Documents/hubseq/genomes/mm10/bowtie2index/mm10.fasta'], 'alternate_outputs': [], 'program_arguments': '', 'sample_id': MODULE+'_test', 'dryrun': ''}
 
-with open(MODULE+'.dryrun_test.io.json','w') as fout:
-    json.dump(io_dryrun_json, fout)
-with open(MODULE+'.test.io.json','w') as fout:
-    json.dump(io_json, fout)
 with open(MODULE+'.dryrun_local_test.io.json','w') as fout:
     json.dump(io_dryrun_local_json, fout)
 
